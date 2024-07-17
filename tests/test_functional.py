@@ -23,4 +23,3 @@ class TestNewVisitor:
         pytest.fail("Finish the test!")
 
         # Satisfied, she goes back to sleep
-
