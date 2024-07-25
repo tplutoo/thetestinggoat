@@ -41,7 +41,7 @@ class TestNewVisitor:
 
         table = self.browser.find_element(By.ID, "id_list_table")
         rows = table.find_elements(By.TAG_NAME, "tr")
-        assert any(row.text == "1: Buy peacock feathers" for row in rows) is True
+        assert any(row.text == "1: Buy peacock feathers" for row in rows), "New to-do item did not appear in table"
 
         # There is still a text box inviting her to add another item.
         # She enters "Use peacock feathers to make a fly
