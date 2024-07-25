@@ -1,14 +1,10 @@
 import pytest
 from django.test import TestCase
-from django.http import HttpRequest
-from lists.views import home_page
+from pytest_django.asserts import assertContains, assertTemplateUsed
 
 
 class TestHomePage(TestCase):
-    def test_home_page_returns_correct_html(self):
+    def test_uses_home_template(self):
         response = self.client.get("/")
-        html = response.content.decode('utf-8')
+        self.assertTemplateUsed(response, "lists/home.html")
 
-        assert "<title>To-Do lists</title>" in html
-        assert html.startswith("<html>")
-        assert html.endswith("</html>")
